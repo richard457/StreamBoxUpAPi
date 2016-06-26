@@ -3,11 +3,11 @@ import Faker from 'faker';
 import _ from 'lodash';
 
 const Conn = new Sequelize(
-  'relay',
-  'postgres',
-  'postgres',
+  'StrimUpOpen',
+  'root',
+  '@123456',
   {
-    dialect: 'postgres',
+    dialect: 'mysql',
     host: 'localhost'
   }
 );
