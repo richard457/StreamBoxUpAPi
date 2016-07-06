@@ -7,12 +7,12 @@ var Sequelize = require('sequelize'),
 
 
 var config = function(obj) {
-  
+  // var obj={name:'StrimUpOpen',user:'root',pass:'@123456',dialect:'mysql',host:'localhost'};
   return obj;
 };
-var obj={name:'StrimUpOpen',user:'root',pass:'@123456',dialect:'mysql',host:'localhost'};
-config(obj);
-const Conn = new Sequelize(
+// var obj={name:'StrimUpOpen',user:'root',pass:'@123456',dialect:'mysql',host:'localhost'};
+// config(obj);
+var Conn = new Sequelize(
   config().name,
    config().user,
    config().pass,
@@ -53,7 +53,7 @@ const Post = Conn.define('post', {
 // Relations
 Person.hasMany(Post);
 Post.belongsTo(Person);
-
+//before force delete get all records 
 Conn.sync({ force: true }).then(function(){
   _.times(10, function(){
       return Person.create({
@@ -70,5 +70,5 @@ Conn.sync({ force: true }).then(function(){
 });
 
 // export default Conn;
-module.exports.configure = config;
+module.exports.config = config;
 

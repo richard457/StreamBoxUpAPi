@@ -13,11 +13,11 @@ var GraphQLObjectType = require('graphql').GraphQLObjectType,
  GraphQLInt = require('graphql').GraphQLInt,
  GraphQLSchema = require('graphql').GraphQLSchema,
  GraphQLList = require('graphql').GraphQLList,
- GraphQLNonNull = require('graphql').GraphQLNonNull,
+ GraphQLNonNull = require('graphql').GraphQLNonNull;
  Db = require('./db');
 
-Db.configure({name:'StrimUpOpen',user:'root',pass:'@123456',dialect:'mysql',host:'localhost'});
-
+// Db.config({name:'StrimUpOpen',user:'root',pass:'@123456',dialect:'mysql',host:'localhost'});
+// console.log('we got here');
 const Post = new GraphQLObjectType({
   name: 'Post',
   description: 'Blog post',
@@ -150,4 +150,4 @@ const Schema = new GraphQLSchema({
 
 // no need of exporting schema by now
 // export default Schema;
-// module.export = Schema;
+module.exports.Schema = Schema;

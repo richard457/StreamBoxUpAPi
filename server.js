@@ -1,23 +1,29 @@
-import Express from 'express';
-import GraphHTTP from 'express-graphql';
-import Schema from './schema';
-// var  Db = require('./db');
+// import Express from 'express';
+// import GraphHTTP from 'express-graphql';
+// import Schema from './schema';
 
-// Db.config({name:'StrimUpOpen',user:'root',pass:'@123456',dialect:'mysql',host:'localhost'});
+
+var Express = require('express'),
+    GraphHTTP = require('express-graphql').GraphHTTP;
+  var   Schema    = require('./schema');  
+    
+
+
+
 
 // Config
-const APP_PORT = 4000;
+var APP_PORT = 4000;
 
 // Start
-const app = Express();
+var app = Express();
 
 // GraphQL
-app.use('/graphql', GraphHTTP({
-  schema: Schema,
-  pretty: true,
-  graphiql: true
-}));
+// app.use('/graphql', GraphHTTP({
+//   schema: Schema,
+//   pretty: true,
+//   graphiql: true
+// }));
 
-app.listen(APP_PORT, ()=> {
+app.listen(APP_PORT, function() {
   console.log(`App listening on port ${APP_PORT}`);
 });
