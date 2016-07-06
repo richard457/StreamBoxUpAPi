@@ -1,14 +1,24 @@
-import Sequelize from 'sequelize';
-import Faker from 'faker';
-import _ from 'lodash';
+// import Sequelize from 'sequelize';
+// import Faker from 'faker';
+// import _ from 'lodash';
+var Sequelize = require('sequelize'),
+    Faker  = require('faker'),
+    _      = require('lodash');
 
+
+var config = function(obj) {
+  
+  return obj;
+};
+var obj={name:'StrimUpOpen',user:'root',pass:'@123456',dialect:'mysql',host:'localhost'};
+config(obj);
 const Conn = new Sequelize(
-  'StrimUpOpen',
-  'root',
-  '@123456',
+  config().name,
+   config().user,
+   config().pass,
   {
-    dialect: 'mysql',
-    host: 'localhost'
+    dialect:config().dialect,
+    host: config().host
   }
 );
 
@@ -44,9 +54,9 @@ const Post = Conn.define('post', {
 Person.hasMany(Post);
 Post.belongsTo(Person);
 
-Conn.sync({ force: true }).then(()=> {
-  _.times(10, ()=> {
-    return Person.create({
+Conn.sync({ force: true }).then(function(){
+  _.times(10, function(){
+      return Person.create({
       firstName: Faker.name.firstName(),
       lastName: Faker.name.lastName(),
       email: Faker.internet.email()
@@ -59,4 +69,6 @@ Conn.sync({ force: true }).then(()=> {
   });
 });
 
-export default Conn;
+// export default Conn;
+module.exports.configure = config;
+

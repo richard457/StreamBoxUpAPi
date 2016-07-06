@@ -1,13 +1,22 @@
-import {
-  GraphQLObjectType,
-  GraphQLString,
-  GraphQLInt,
-  GraphQLSchema,
-  GraphQLList,
-  GraphQLNonNull
-} from 'graphql';
+//import {
+//  GraphQLObjectType,
+//  GraphQLString,
+//  GraphQLInt,
+//  GraphQLSchema,
+//  GraphQLList,
+//  GraphQLNonNull
+//} from 'graphql';
+//
+//import Db from './db';
+var GraphQLObjectType = require('graphql').GraphQLObjectType,
+ GraphQLString = require('graphql').GraphQLString,
+ GraphQLInt = require('graphql').GraphQLInt,
+ GraphQLSchema = require('graphql').GraphQLSchema,
+ GraphQLList = require('graphql').GraphQLList,
+ GraphQLNonNull = require('graphql').GraphQLNonNull,
+ Db = require('./db');
 
-import Db from './db';
+Db.configure({name:'StrimUpOpen',user:'root',pass:'@123456',dialect:'mysql',host:'localhost'});
 
 const Post = new GraphQLObjectType({
   name: 'Post',
@@ -39,7 +48,7 @@ const Post = new GraphQLObjectType({
 const Person = new GraphQLObjectType({
   name: 'Person',
   description: 'This represents a Person',
-  fields: () => {
+  fields ()  {
     return {
       id: {
         type: GraphQLInt,
@@ -78,7 +87,7 @@ const Person = new GraphQLObjectType({
 const Query = new GraphQLObjectType({
   name: 'Query',
   description: 'Root query object',
-  fields: () => {
+  fields () {
     return {
       people: {
         type: new GraphQLList(Person),
@@ -139,4 +148,6 @@ const Schema = new GraphQLSchema({
   mutation: Mutation
 });
 
-export default Schema;
+// no need of exporting schema by now
+// export default Schema;
+// module.export = Schema;
