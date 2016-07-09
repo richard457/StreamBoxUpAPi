@@ -1,28 +1,44 @@
 {
-    "name":"StrimUpOpen",
-    "user":"root",
-    "pass":"@123456",
-    "dialect":"mysql",
-    "host":"localhost",
-    "tables":{
-        "name":"person",
-            
-            "attributes":{
-                "firstName": {
-                "type": "Sequelize.STRING",
-                "allowNull": false
-                },
-                "lastName": {
+    "env":"local",
+    "local":{
+        "name":"local_slave",
+        "user":"root",
+        "pass":"@123456",
+        "dialect":"mysql",
+        "host":"localhost",
+        "tables":[{
+            "name":"person",
+                
+                "attributes":{
+                    "col0": {
+                    "name":"firstName",
                     "type": "Sequelize.STRING",
                     "allowNull": false
-                },
-                "email": {
-                    "type": "Sequelize.STRING",
-                    "validate": {
-                    "isEmail": true
+                    },
+                    "col1": {
+                        "name":"lastName",
+                        "type": "Sequelize.STRING",
+                        "allowNull": false
+                    },
+                    "col2": {
+                        "name":"email",
+                        "type": "Sequelize.STRING",
+                        "validate": {
+                        "isEmail": true
+                        }
                     }
                 }
-            }
-       
+        
+        }]
+    },
+    "live":{
+        "name":"live_slave",
+        "user":"root",
+        "pass":"@123456",
+        "dialect":"mysql",
+        "host":"localhost",
+        "tables":{
+            "name":"person"
+        }
     }
 }

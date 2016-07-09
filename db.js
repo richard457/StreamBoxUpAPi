@@ -37,15 +37,27 @@ var config = function() {
 
 
 var Conn = new Sequelize(
-  config().name,
-   config().user,
-   config().pass,
+  config().local.name,
+   config().local.user,
+   config().local.pass,
   {
-    dialect:config().dialect,
-    host: config().host
+    dialect:config().local.dialect,
+    host: config().local.host
   }
 );
-console.log(config().tables.attributes);
+var attributes;
+var clean_attributes=[];
+config().local.tables.forEach(function(element) {
+ 
+  clean_attributes.push(element.attributes);
+}, this);
+
+// console.log(clean_attributes);
+for (var index = 0; index < clean_attributes.length; index++) {
+  var element = clean_attributes[index];
+  console.log(element.col0);
+}
+// console.log(config().local.tables.attributes.firstName.type);
 
 const Person = Conn.define('person', {
   firstName: {
@@ -80,20 +92,23 @@ const Post = Conn.define('post', {
 Person.hasMany(Post);
 Post.belongsTo(Person);
 //before force delete get all records 
-Conn.sync({ force: true }).then(function(){
-  _.times(10, function(){
-      return Person.create({
-      firstName: Faker.name.firstName(),
-      lastName: Faker.name.lastName(),
-      email: Faker.internet.email()
-    }).then(person => {
-      return person.createPost({
-        title: `Sample post by ${person.firstName}`,
-        content: 'here is some content'
-      });
-    });
-  });
-});
+// console.log(Person.all());
+
+//merge the records from online host and local host and do insert again
+// Conn.sync({ force: true }).then(function(){
+//   _.times(10, function(){
+//       return Person.create({
+//       firstName: Faker.name.firstName(),
+//       lastName: Faker.name.lastName(),
+//       email: Faker.internet.email()
+//     }).then(person => {
+//       return person.createPost({
+//         title: `Sample post by ${person.firstName}`,
+//         content: 'here is some content'
+//       });
+//     });
+//   });
+// });
 
 // export default Conn;
 module.exports.config = config;
