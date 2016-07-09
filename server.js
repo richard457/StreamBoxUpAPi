@@ -1,7 +1,10 @@
 // import Express from 'express';
 // import GraphHTTP from 'express-graphql';
 // import Schema from './schema';
-
+'use strict';
+var fs = require('fs');
+fs.createReadStream('.sample-env')
+  .pipe(fs.createWriteStream('.env'));
 
 var Express = require('express'),
     GraphHTTP = require('express-graphql').GraphHTTP;

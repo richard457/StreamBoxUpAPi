@@ -1,44 +1,61 @@
 {
-  "name": "synchronous",
-  "version": "1.0.0",
-  "description": "Synchronous Server without limitation of what engine you are using.",
+  "name": "sequelize-cli",
+  "version": "2.4.0",
+  "description": "The sequelize CLI.",
   "main": "index.js",
   "dependencies": {
-    "babel-core": "^6.4.5",
-    "babel-polyfill": "^6.3.14",
-    "babel-preset-node5": "^10.9.0",
-    "babel-register": "^6.4.3",
-    "babel-relay-plugin": "^0.6.3",
-    "bluebird": "^3.2.1",
-    "express": "^4.13.4",
-    "express-graphql": "^0.4.4",
-    "faker": "^3.0.1",
-    "graphql": "^0.4.16",
-    "graphql-relay": "^0.3.6",
-    "graphql-sequelize": "^2.1.1",
-    "lodash": "^4.2.1",
-    "mysql": "^2.11.1",
-    "pg": "^4.4.4",
-    "pg-hstore": "^2.3.2",
-    "read-json": "^1.0.3",
-    "sequelize": "^3.19.1"
+    "bluebird": "^3.3.4",
+    "cli-color": "~0.3.2",
+    "findup-sync": "^0.4.0",
+    "fs-extra": "^0.30.0",
+    "gulp": "^3.9.1",
+    "gulp-help": "~1.6.1",
+    "js-beautify": "^1.5.4",
+    "lodash": "^4.12.0",
+    "moment": "^2.12.0",
+    "resolve": "^1.0.0",
+    "umzug": "^1.9.1",
+    "yargs": "^4.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "coffee-script": "^1.9.0",
+    "expect.js": "~0.3.1",
+    "gulp-jscs": "^1.5.1",
+    "gulp-jshint": "^1.10.0",
+    "gulp-jshint-instafail": "^1.0.0",
+    "gulp-mocha": "^2.0.0",
+    "js2coffee": "^2.0.0",
+    "jshint-stylish": "^2.2.0",
+    "mocha": "^2.5.1",
+    "mysql": "^2.5.4",
+    "nodeify": "^1.0.0",
+    "pg": "^5.0.0",
+    "pg-hstore": "^2.3.1",
+    "run-sequence": "^1.0.2",
+    "sequelize": "^3.22.0",
+    "sqlite3": "^3.0.4",
+    "through2": "^2.0.1"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "gulp"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/richard457/StreamBoxUpAPi.git"
+    "url": "git://github.com/sequelize/cli.git"
   },
   "keywords": [
-    "Server"
+    "sequelize",
+    "cli"
   ],
-  "author": "Muragijimana Richard <beastar457@gmail.com> (http://streamupbox.com)",
-  "license": "ISC",
+  "author": "Sascha Depold",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/richard457/StreamBoxUpAPi/issues"
+    "url": "https://github.com/sequelize/cli/issues"
   },
-  "homepage": "https://github.com/richard457/StreamBoxUpAPi#readme"
+  "homepage": "https://github.com/sequelize/cli",
+ 
+  "preferGlobal": true,
+  "bin": {
+    "streamupbox-server": "bin/sequelize"
+  }
 }

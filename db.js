@@ -4,6 +4,8 @@
 var Sequelize = require('sequelize'),
     Faker  = require('faker'),
     _      = require('lodash');
+var dotenv = require('dotenv');
+dotenv.load();
 
 var fs = require("fs");
 var call = require("try-call");
@@ -93,7 +95,11 @@ Person.hasMany(Post);
 Post.belongsTo(Person);
 //before force delete get all records 
 // console.log(Person.all());
-
+Person.findAll(
+).then(function(response){
+  console.log(response.dataValues);
+});
+// console.log(pers);
 //merge the records from online host and local host and do insert again
 // Conn.sync({ force: true }).then(function(){
 //   _.times(10, function(){
@@ -111,5 +117,8 @@ Post.belongsTo(Person);
 // });
 
 // export default Conn;
+
+
+//create a command that will create a migration and populate the Model array to be used in sync
 module.exports.config = config;
 
