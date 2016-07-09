@@ -30,22 +30,18 @@ function sync (filename, options) {
 function parse (bf) {
   return JSON.parse(bf.toString().replace(/^\ufeff/g, ''));
 }
- var obj;
-async('./config.json', function(error, f){
-
-  
-    // => 'read-json'
-   obj = {name:f.name,user:f.user,pass:f.user,dialect:f.dialect,host:f.host};
-    console.log(obj);
-
-});
-
-
-
-var config = function(obj) {
-  var obj={name:'StrimUpOpen',user:'root',pass:'@123456',dialect:'mysql',host:'localhost'};
-  return obj;
+var obj;
+var config = function() {
+   var d = sync('./config.json');
+  //  console.log(d);
+  return d;
+ 
 };
+
+
+
+
+
 // var obj={name:'StrimUpOpen',user:'root',pass:'@123456',dialect:'mysql',host:'localhost'};
 // config(obj);
 var Conn = new Sequelize(
