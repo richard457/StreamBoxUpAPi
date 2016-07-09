@@ -8,9 +8,6 @@ var Sequelize = require('sequelize'),
 var fs = require("fs");
 var call = require("try-call");
 
-// module.exports = async;
-// module.exports.sync = sync;
-
 function async (filename, options, callback) {
   if(arguments.length == 2){
     callback = options;
@@ -30,20 +27,15 @@ function sync (filename, options) {
 function parse (bf) {
   return JSON.parse(bf.toString().replace(/^\ufeff/g, ''));
 }
-var obj;
+
 var config = function() {
-   var d = sync('./config.json');
-  //  console.log(d);
-  return d;
+   var obj = sync('./config.json');
+  
+  return obj;
  
 };
 
 
-
-
-
-// var obj={name:'StrimUpOpen',user:'root',pass:'@123456',dialect:'mysql',host:'localhost'};
-// config(obj);
 var Conn = new Sequelize(
   config().name,
    config().user,
@@ -53,6 +45,7 @@ var Conn = new Sequelize(
     host: config().host
   }
 );
+console.log(config().tables.attributes);
 
 const Person = Conn.define('person', {
   firstName: {
@@ -64,6 +57,7 @@ const Person = Conn.define('person', {
     allowNull: false
   },
   email: {
+    //how to ommit quotes around a string!?
     type: Sequelize.STRING,
     validate: {
       isEmail: true
