@@ -1,10 +1,10 @@
-Syncronious Server
+Synchronous Server without limitation of what engine you are using Built for StreamUpBox but can be used by anyone.
 ============
 
 This will be the server that lay on top of any engine you may want to use supporting mysql,postgress,sqlite
 helping them to sync two DB in synchronious way
 
-![alt tag](https://raw.githubusercontent.com/richard457/streamup-open/master/app.png)
+
 
 ## Features
 

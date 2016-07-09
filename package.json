@@ -1,15 +1,8 @@
 {
-  "name": "Asyncronious-server",
+  "name": "synchronous",
   "version": "1.0.0",
-  "description": "",
+  "description": "Synchronous Server without limitation of what engine you are using.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ."
-  },
-  "author": "Muragijimana Richard",
-  "email": "beastar457@gmail.com",
-  "license": "ISC",
   "dependencies": {
     "babel-core": "^6.4.5",
     "babel-polyfill": "^6.3.14",
@@ -29,5 +22,23 @@
     "pg-hstore": "^2.3.2",
     "read-json": "^1.0.3",
     "sequelize": "^3.19.1"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richard457/StreamBoxUpAPi.git"
+  },
+  "keywords": [
+    "Server"
+  ],
+  "author": "Muragijimana Richard <beastar457@gmail.com> (http://streamupbox.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/richard457/StreamBoxUpAPi/issues"
+  },
+  "homepage": "https://github.com/richard457/StreamBoxUpAPi#readme"
 }
