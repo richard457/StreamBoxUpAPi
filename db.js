@@ -7,7 +7,7 @@ var Sequelize = require('sequelize'),
 
 
 var config = function(obj) {
-  // var obj={name:'StrimUpOpen',user:'root',pass:'@123456',dialect:'mysql',host:'localhost'};
+  var obj={name:'StrimUpOpen',user:'root',pass:'@123456',dialect:'mysql',host:'localhost'};
   return obj;
 };
 // var obj={name:'StrimUpOpen',user:'root',pass:'@123456',dialect:'mysql',host:'localhost'};

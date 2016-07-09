@@ -1,0 +1,7 @@
+{
+    "name":"StrimUpOpen",
+    "user":"root",
+    "pass":"@123456",
+    "dialect":"mysql",
+    "host":"localhost"
+}

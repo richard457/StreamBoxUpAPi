@@ -14,10 +14,9 @@ var GraphQLObjectType = require('graphql').GraphQLObjectType,
  GraphQLSchema = require('graphql').GraphQLSchema,
  GraphQLList = require('graphql').GraphQLList,
  GraphQLNonNull = require('graphql').GraphQLNonNull;
- Db = require('./db');
+ var Db = require('./db');
 
-// Db.config({name:'StrimUpOpen',user:'root',pass:'@123456',dialect:'mysql',host:'localhost'});
-// console.log('we got here');
+
 const Post = new GraphQLObjectType({
   name: 'Post',
   description: 'Blog post',
